@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <title>Random Background Color</title>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Background Changer</h2>
+        <p>Current Color: <span id="colorCode">#FFFFFF</span></p>
+        <button onclick="changeColor()">Change Background</button>
+    </div>
+
+    <script>
+        function changeColor() {
+            const hexCharacters = '0123456789ABCDEF';
+            
+            let color = '#';
+
+            for (let i = 0; i < 6; i++) {
+                const randomIndex = Math.floor(Math.random() * 16);
+                color += hexCharacters[randomIndex];
+            }
+
+            document.body.style.backgroundColor = color;
+
+            document.getElementById('colorCode').textContent = color;
+        }
+    </script>
+
+</body>
+</html>

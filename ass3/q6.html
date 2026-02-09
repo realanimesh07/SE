@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+    <title>Student Grade Calculator</title>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Marks Calculator</h2>
+        
+        <div class="input-group">
+            <label>Subject 1 Marks:</label>
+            <input type="number" id="sub1" placeholder="0-100">
+        </div>
+        <div class="input-group">
+            <label>Subject 2 Marks:</label>
+            <input type="number" id="sub2" placeholder="0-100">
+        </div>
+        <div class="input-group">
+            <label>Subject 3 Marks:</label>
+            <input type="number" id="sub3" placeholder="0-100">
+        </div>
+
+        <button onclick="calculateResult()">Calculate Result</button>
+
+        <div id="result-box">
+            <div class="result-row">
+                <span>Total:</span>
+                <strong id="totalOut"></strong>
+            </div>
+            <div class="result-row">
+                <span>Average:</span>
+                <strong id="avgOut"></strong>
+            </div>
+            <div class="result-row">
+                <span>Status:</span>
+                <span id="statusOut"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateResult() {
+            const s1 = parseFloat(document.getElementById('sub1').value) || 0;
+            const s2 = parseFloat(document.getElementById('sub2').value) || 0;
+            const s3 = parseFloat(document.getElementById('sub3').value) || 0;
+
+            const total = s1 + s2 + s3;
+
+            const average = total / 3;
+
+            let status = "";
+            let statusClass = "";
+
+            if (average >= 40) {
+                status = "Passed";
+                statusClass = "status-pass";
+            } else {
+                status = "Failed";
+                statusClass = "status-fail";
+            }
+
+            document.getElementById('totalOut').textContent = total;
+            
+            document.getElementById('avgOut').textContent = average.toFixed(2) + "%";
+            
+            const statusEl = document.getElementById('statusOut');
+            statusEl.textContent = status;
+            
+            statusEl.className = statusClass;
+
+            document.getElementById('result-box').style.display = "block";
+        }
+    </script>
+
+</body>
+</html>

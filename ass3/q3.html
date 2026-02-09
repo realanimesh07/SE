@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <title>Click Counter</title>
+</head>
+<body>
+
+    <div class="counter-box">
+        <h3>Button Clicked:</h3>
+        <h1 id="countDisplay">0</h1>
+        
+        <button onclick="incrementCount()">Click Me!</button>
+        <button id="resetBtn" onclick="resetCount()">Reset</button>
+    </div>
+
+    <script>
+        let count = 0;
+
+        function incrementCount() {
+            count++;
+
+            document.getElementById("countDisplay").textContent = count;
+        }
+
+        function resetCount() {
+            count = 0;
+            document.getElementById("countDisplay").textContent = count;
+        }
+    </script>
+
+</body>
+</html>
